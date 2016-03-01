@@ -2,8 +2,10 @@
 FROM gcr.io/google_appengine/base
 
 # Install updates and dependencies
-RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates libkrb5-dev ruby-dev gcc make libgemplugin-ruby && \
+RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates libkrb5-dev gcc make && \
     apt-get clean && rm /var/lib/apt/lists/*_*
+
+RUN apt-get install -y -q ruby-dev
 
 RUN gem install fpm
 
@@ -21,8 +23,6 @@ ADD install_node /usr/local/bin/install_node
 ENV NODE_ENV production
 
 WORKDIR /app
-
-
 
 # start
 CMD ["npm", "start"]
