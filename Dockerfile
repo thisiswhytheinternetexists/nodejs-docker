@@ -22,7 +22,7 @@ ENV PATH $PATH:/nodejs/bin
 RUN npm install https://storage.googleapis.com/gae_node_packages/semver.tar.gz
 
 # Add the node version install script
-ADD install_node /usr/local/bin/install_node
+# ADD install_node /usr/local/bin/install_node
 
 # Set common env vars
 ENV NODE_ENV production
