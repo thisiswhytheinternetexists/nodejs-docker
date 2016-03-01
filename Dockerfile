@@ -2,7 +2,7 @@
 FROM gcr.io/google_appengine/base
 
 # Install updates and dependencies
-RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates libkrb5-dev gcc make autoconf && \
+RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates libkrb5-dev gcc make && \
     apt-get clean && rm /var/lib/apt/lists/*_*
 
 # skip installing gem documentation
@@ -24,6 +24,7 @@ RUN set -ex \
 		bison \
 		libgdbm-dev \
 		ruby \
+		autoconf \
 	' \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends $buildDeps \
