@@ -2,7 +2,7 @@
 FROM gcr.io/google_appengine/base
 
 # Install updates and dependencies
-RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates libkrb5-dev ruby-dev gcc make && \
+RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates libkrb5-dev ruby-dev gcc make libgemplugin-ruby && \
     apt-get clean && rm /var/lib/apt/lists/*_*
 
 RUN gem install fpm
