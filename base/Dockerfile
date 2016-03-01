@@ -2,8 +2,10 @@
 FROM gcr.io/google_appengine/base
 
 # Install updates and dependencies
-RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates libkrb5-dev && \
+RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates libkrb5-dev ruby-dev gcc make && \
     apt-get clean && rm /var/lib/apt/lists/*_*
+
+RUN gem install fpm
 
 # Install the latest LTS release of nodejs
 RUN mkdir /nodejs && curl https://nodejs.org/dist/v4.2.3/node-v4.2.3-linux-x64.tar.gz | tar xvzf - -C /nodejs --strip-components=1
@@ -19,6 +21,8 @@ ADD install_node /usr/local/bin/install_node
 ENV NODE_ENV production
 
 WORKDIR /app
+
+
 
 # start
 CMD ["npm", "start"]
