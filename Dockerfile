@@ -1,7 +1,6 @@
 # Use the base App Engine Docker image, based on debian jessie.
 FROM gcr.io/google_appengine/base
 
-RUN locale-gen en_US.UTF-8  
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
 ENV LC_ALL en_US.UTF-8
