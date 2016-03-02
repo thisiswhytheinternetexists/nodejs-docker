@@ -1,5 +1,5 @@
 # Use the base App Engine Docker image, based on debian jessie.
-FROM ubuntu/trusty
+FROM ubuntu:trusty
 
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
