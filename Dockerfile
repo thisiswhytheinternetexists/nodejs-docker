@@ -1,6 +1,11 @@
 # Use the base App Engine Docker image, based on debian jessie.
 FROM gcr.io/google_appengine/base
 
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8
+
 # Install updates and dependencies
 RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates libkrb5-dev gcc make ruby-full && \
     apt-get clean && rm /var/lib/apt/lists/*_*
