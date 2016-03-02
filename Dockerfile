@@ -13,6 +13,7 @@ RUN mkdir -p /usr/local/etc \
 	} >> /usr/local/etc/gemrc
 
 RUN gem install fpm
+RUN gem install package_cloud
 
 # Install the latest LTS release of nodejs
 RUN mkdir /nodejs && curl https://nodejs.org/dist/v4.2.3/node-v4.2.3-linux-x64.tar.gz | tar xvzf - -C /nodejs --strip-components=1
@@ -20,6 +21,7 @@ ENV PATH $PATH:/nodejs/bin
 
 # Install semver, as required by the node version install script.
 RUN npm install https://storage.googleapis.com/gae_node_packages/semver.tar.gz
+RUN npm install -g nexe
 
 # Add the node version install script
 # ADD install_node /usr/local/bin/install_node
