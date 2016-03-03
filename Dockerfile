@@ -26,9 +26,6 @@ RUN gem install fpm package_cloud
 RUN mkdir /nodejs && curl https://nodejs.org/dist/v4.2.3/node-v4.2.3-linux-x64.tar.gz | tar xvzf - -C /nodejs --strip-components=1
 ENV PATH $PATH:/nodejs/bin
 
-# Set common env vars
-ENV NODE_ENV production
-WORKDIR /app
 RUN npm install -g nexe grunt
 
 # start
