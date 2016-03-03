@@ -7,7 +7,6 @@ CMD ["/sbin/my_init"]
 # Set the locale
 ENV DEBIAN_FRONTEND=noninteractive
 RUN locale-gen en_US.UTF-8
-RUN dpkg-reconfigure locales
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 
 # skip installing gem documentation
