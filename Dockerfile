@@ -2,6 +2,7 @@
 FROM ubuntu:trusty
 
 # Set the locale
+ENV DEBIAN_FRONTEND=noninteractive
 RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
 ENV LANG en_US.UTF-8
