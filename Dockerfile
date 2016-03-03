@@ -20,9 +20,7 @@ RUN mkdir -p /usr/local/etc \
 RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates libkrb5-dev gcc make ruby ruby-dev && \
     apt-get clean && rm /var/lib/apt/lists/*_*
 
-
-RUN gem install fpm
-RUN gem install package_cloud
+RUN gem install fpm package_cloud
 
 # Install the latest LTS release of nodejs
 RUN mkdir /nodejs && curl https://nodejs.org/dist/v4.2.3/node-v4.2.3-linux-x64.tar.gz | tar xvzf - -C /nodejs --strip-components=1
