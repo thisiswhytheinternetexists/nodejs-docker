@@ -23,16 +23,11 @@ RUN apt-get update -y && apt-get install --no-install-recommends -y -q wget pyth
 RUN \
   cd /tmp && \
   wget https://nodejs.org/dist/v4.3.2/node-v4.3.2-linux-x64.tar.gz && \
-  tar xvzf node-v4.3.2-linux-x64.tar.gz && \
-  rm -f node-v4.3.2-linux-x64.tar.gz && \
-  cd node-v* && \
-  ./configure && \
-  CXX="g++ -Wno-unused-local-typedefs" make && \
-  CXX="g++ -Wno-unused-local-typedefs" make install && \
-  cd /tmp && \
-  rm -rf /tmp/node-v* && \
-  npm install -g npm && \
-  echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
+  tar -C /usr/local --strip-components 1 -xzf node-v4.3.2-linux-x64.tar.gz && \
+  rm -f /tmp/node-v4.3.2-linux-x64.tar.gz && \
+  echo '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc && \
+  npm install -g npm
+
 
 RUN gem install fpm package_cloud
 
