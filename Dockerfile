@@ -17,7 +17,7 @@ RUN mkdir -p /usr/local/etc \
 	} >> /usr/local/etc/gemrc
 
 # Install updates and dependencies
-RUN apt-get update -y && apt-get install --no-install-recommends -y -q curlpython build-essential ca-certificates gcc make ruby ruby-dev git git-core
+RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential ca-certificates gcc make ruby ruby-dev git git-core
 
 # install nodejs
 RUN \
