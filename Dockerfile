@@ -36,7 +36,7 @@ RUN \
 
 RUN gem install fpm package_cloud
 
-RUN npm install -g nexe grunt
+RUN npm install -g nexe grunt grunt-cli
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
