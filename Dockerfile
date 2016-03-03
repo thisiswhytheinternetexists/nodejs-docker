@@ -1,10 +1,12 @@
 # Use the base App Engine Docker image, based on debian jessie.
 FROM ubuntu:trusty
 
-ENV LANG en_US.UTF-8  
-ENV LANGUAGE en_US:en  
+# Set the locale
+RUN locale-gen en_US.UTF-8
+RUN dpkg-reconfigure locales
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
-CMD ["/bin/bash"]
 
 # skip installing gem documentation
 RUN mkdir -p /usr/local/etc \
