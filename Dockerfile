@@ -1,12 +1,9 @@
-# Use the base App Engine Docker image, based on debian jessie.
-FROM phusion/baseimage:0.9.18
-
-# Use baseimage-docker's init system.
-CMD ["/sbin/my_init"]
+FROM ubuntu:trusty
 
 # Set the locale
 ENV DEBIAN_FRONTEND=noninteractive
 RUN locale-gen en_US.UTF-8
+RUN dpkg-reconfigure locales
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
 
 # skip installing gem documentation
