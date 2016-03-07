@@ -14,7 +14,7 @@ RUN mkdir -p /usr/local/etc \
 	} >> /usr/local/etc/gemrc
 
 # Install updates and dependencies
-RUN apt-get update -y && apt-get install --no-install-recommends -y -q wget python build-essential ca-certificates gcc make ruby ruby-dev git git-core libfreetype6 libicu-dev libpng-dev libjpeg-dev flex bison gperf libssl-dev
+RUN apt-get update -y && apt-get install --no-install-recommends -y -q wget python build-essential ca-certificates gcc make ruby ruby-dev git git-core libfreetype6 libicu-dev libpng-dev libjpeg-dev flex bison gperf libssl-dev libfontconfig
 
 # install nodejs
 RUN \
