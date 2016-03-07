@@ -14,7 +14,7 @@ RUN mkdir -p /usr/local/etc \
 	} >> /usr/local/etc/gemrc
 
 # Install updates and dependencies
-RUN apt-get update -y && apt-get install --no-install-recommends -y -q wget python build-essential ca-certificates gcc make ruby ruby-dev git git-core
+RUN apt-get update -y && apt-get install --no-install-recommends -y -q wget python build-essential ca-certificates gcc make ruby ruby-dev git git-core libfreetype6
 
 # install nodejs
 RUN \
@@ -29,6 +29,13 @@ RUN \
 RUN gem install fpm package_cloud
 
 RUN npm install -g nexe grunt grunt-cli
+
+ENV PHANTOM_JS_TAG 2.0.0
+
+RUN git clone https://github.com/ariya/phantomjs.git /tmp/phantomjs && \
+  cd /tmp/phantomjs && git checkout $PHANTOM_JS_TAG && \
+  ./build.sh --confirm && mv bin/phantomjs /usr/local/bin && \
+  rm -rf /tmp/phantomjs
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
